@@ -10,28 +10,26 @@ function incrementCount(number) {
   return numbersArray;
 }
 
-// Isolates the digits inside of a number
+// Isolates the digits inside of a number and adds them to an array
 function digitSplitter(number) {
+  var ones = Math.floor((number / 1) % 10);
+  var tens = Math.floor((number / 10) % 10);
+  var hundreds = Math.floor((number / 100) % 10);
   var digits = [];
+  digits.push(hundreds);
+  digits.push(tens);
+  digits.push(ones);
   if ((number >= 0) && (number < 10)) {
-    return digits.push(number);
+    return digits.slice(2);
   } else if ((number >= 10) && (number < 100)) {
-    return [digits.push(Math.floor((number / 1) % 10)),
-      digits.push(Math.floor((number / 10) % 10))];
+    return digits.slice(1);
   } else if ((number >= 100) && (number < 1000)) {
-    return [digits.push(Math.floor((number / 1) % 10)),
-      digits.push(Math.floor((number / 10) % 10)),
-      digits.push(Math.floor((number / 100) % 10))];
+    return digits;
   }
-  console.log(digits[1]);
 }
 
-// digits.push(Math.floor((number / 1) % 10));
-// digits.push(Math.floor((number / 10) % 10));
-// digits.push(Math.floor((number / 100) % 10));
 
-console.log(digitSplitter(4));
-// Math.floor((736 / 1) % 10))
+console.log(digitSplitter(753));
 
 
 
