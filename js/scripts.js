@@ -1,6 +1,5 @@
 // Business Logic
 var beeopBoopSorry = "";
-numbersArray = [0, 1, 2, 3, 4, 5] // test array
 
 // Counts up from 0 to the user specified number and stores the count in an array
 function incrementCount(number) {
@@ -11,7 +10,30 @@ function incrementCount(number) {
   return numbersArray;
 }
 
-console.log(incrementCount(15));
+// Isolates the digits inside of a number
+function digitSplitter(number) {
+  var digits = [];
+  if ((number >= 0) && (number < 10)) {
+    return digits.push(number);
+  } else if ((number >= 10) && (number < 100)) {
+    return [digits.push(Math.floor((number / 1) % 10)),
+      digits.push(Math.floor((number / 10) % 10))];
+  } else if ((number >= 100) && (number < 1000)) {
+    return [digits.push(Math.floor((number / 1) % 10)),
+      digits.push(Math.floor((number / 10) % 10)),
+      digits.push(Math.floor((number / 100) % 10))];
+  }
+  console.log(digits[1]);
+}
+
+// digits.push(Math.floor((number / 1) % 10));
+// digits.push(Math.floor((number / 10) % 10));
+// digits.push(Math.floor((number / 100) % 10));
+
+console.log(digitSplitter(4));
+// Math.floor((736 / 1) % 10))
+
+
 
 // Return Beeps, Boops, and Sorry's
 function beepBooper(digit) {
@@ -26,6 +48,8 @@ function beepBooper(digit) {
     return digit;
   }
 }
+
+
 
 // If a number in the array contains the digit 1, return "Beep!"
 // function digitReader(number) {
