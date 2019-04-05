@@ -11,13 +11,21 @@ function incrementCount(userNumber) {
 console.log(incrementCount(userNumber));
 // Isolates the digits inside of a number and adds them to an array
 function digitFinder(numbers) {
+  var numbers = incrementCount(userNumber);
   for (var i = 0; i < numbers.length; i++) {
     var number = numbers[i];
     if ((number).toString().indexOf("3") != -1) {
-
+      return "I'm sorry, Dave. I'm afraid I can't do that.";
+    } else if ((number).toString().indexOf("2") != -1) {
+      return "Boop!";
+    } else if ((number).toString().indexOf("1") != -1) {
+      return "Beep!";
+    } else {
+      return number;
     }
   }
 }
+console.log(digitFinder(6));
 
   //   var number = numbersArray[i];
   //   var ones = Math.floor((number / 1) % 10);
@@ -43,7 +51,6 @@ function digitFinder(numbers) {
   //     return digits;
   //   }
   // }
-console.log(digitFinder(incrementCount[3]));
 
 // Return Beeps, Boops, and Sorry's
 function beepBooper(digit) {
