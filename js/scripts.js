@@ -12,12 +12,15 @@ function incrementCount(userNumber) {
 function digitFinder(numbers) {
   var outputString = "";
   if ((numbers).toString().includes("3")) {
-    return outputString = (outputString + " " + "I'm sorry, Dave. I'm afraid I can't do that.")
-  } else if ((numbers).toString().includes("2")) {
-    return outputString = (outputString + " " + "Boop!")
-  } else if ((numbers).toString().includes("1")) {
-    return outputString = (outputString + " " +  "Beep!")
-  } else {
+    return outputString = (outputString + " " + "I'm sorry, Dave. I'm afraid I can't do that.");
+  }
+  else if ((numbers).toString().includes("2")) {
+    return outputString = (outputString + " " + "Boop!");
+  }
+  else if ((numbers).toString().includes("1")) {
+    return outputString = (outputString + " " +  "Beep!");
+  }
+  else {
     return outputString = (outputString + " " + numbers)
   }
 };
