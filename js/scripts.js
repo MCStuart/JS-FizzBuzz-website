@@ -1,99 +1,28 @@
 // Business Logic
 // Counts up from 0 to the user specified number and stores the count in an array
-var userNumber = 15;
+
 function incrementCount(userNumber) {
-  var numbersArray = [];
+  var numbers = [];
   for (var i = 0; i <= userNumber; i++) {
-    numbersArray.push(i);
+    numbers.push(i)
   }
-  return numbersArray;
+  return (numbers);
 };
-console.log(incrementCount(userNumber));
+
 // Isolates the digits inside of a number and adds them to an array
 function digitFinder(numbers) {
-  var numbers = incrementCount(userNumber);
-  for (var i = 0; i < numbers.length; i++) {
-    var number = numbers[i];
-    if ((number).toString().indexOf("3") != -1) {
-      return "I'm sorry, Dave. I'm afraid I can't do that.";
-    } else if ((number).toString().indexOf("2") != -1) {
-      return "Boop!";
-    } else if ((number).toString().indexOf("1") != -1) {
-      return "Beep!";
-    } else {
-      return number;
-    }
+  var outputString = "";
+  if ((number).toString().includes("3") != -1) {
+    return outputString = (outputString + " " + "I'm sorry, Dave. I'm afraid I can't do that.");
   }
-}
-console.log(digitFinder(6));
-
-  //   var number = numbersArray[i];
-  //   var ones = Math.floor((number / 1) % 10);
-  //   var tens = Math.floor((number / 10) % 10);
-  //   var hundreds = Math.floor((number / 100) % 10);
-  //   var digits = [];
-  //   digits.push(hundreds);
-  //   digits.push(tens);
-  //   digits.push(ones);
-  //   if ((number >= 0) && (number < 10)) {
-  //     return digits.push(number);
-  //     return digits.slice(2);
-  //   }
-  //   else if ((number >= 10) && (number < 100)) {
-  //     return [digits.push(Math.floor((number / 1) % 10)),
-  //       digits.push(Math.floor((number / 10) % 10))];
-  //     return digits.slice(1);
-  //   }
-  //   else if ((number >= 100) && (number < 1000)) {
-  //     return [digits.push(Math.floor((number / 1) % 10)),
-  //       digits.push(Math.floor((number / 10) % 10)),
-  //       digits.push(Math.floor((number / 100) % 10))];
-  //     return digits;
-  //   }
-  // }
-
-// Return Beeps, Boops, and Sorry's
-function beepBooper(digit) {
-  if (digit === 3) {
-    return "I'm sorry, Dave. I'm afraid I can't do that.";
-  } else if (digit === 2) {
-    return "Boop!";
-  } else if (digit === 1) {
-    return "Beep!";
-  } else {
-    return digit;
+  else if ((number).toString().includes("2") != -1) {
+    return outputString = (outputString + " " + "Boop!");
   }
-};
-
-function opensPodBayDoors(number) {
-  var outputReturn = "";
-  var numbersArray = incrementCount(number);
-  for (var i = 0; i < numbersArray.length; i++) {
-    var number = numbersArray[i];
-    if (number < 10) {
-      return beepBooper(number);
-    }
-    else if ((number >=10) && (number <100)) {
-      for (var d = 0; d < 2; d++) {
-        var digit = digitFinder[d];
-        if ((digit === 3) || (digit === 2) || (digit === 1)) {
-          return beepBooper(digit);
-        }
-        else {
-          return number;
-        }
-      }
-    }
-    else if ((numbersArray[i] >= 100) && (numbersArray[i] < 1000)) {
-      for (var h = 0; h < 3; h++) {
-        var digit = digitFinder[h];
-        if ((digit === 3) || (digit === 2) || (digit === 1)) {
-           return beepBooper(digit);
-        } else {
-          return number;
-        }
-      }
-    }
+  else if ((number).toString().includes("1") != -1) {
+    return outputString = (outputString + " " +  "Beep!");
+  }
+  else {
+    return outputString = (outputString + " " + number);
   }
 };
 
@@ -102,7 +31,7 @@ $(document).ready(function(){
   $("#formOne").submit(function(event){
     event.preventDefault();
     var userNumber = $("#input").val();
-    var output = opensPodBayDoors(userNumber);
+    var output = incrementCount(userNumber);
     $('.result').show();
     $('#outputStr').text(output);
   });
